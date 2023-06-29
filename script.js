@@ -30,7 +30,7 @@ function writePassword() {
   } else if (Number.isInteger(passwordLength) == false) {
     alert("Please enter a whole number.");
   } else {
-    alert("Your password will be " + passwordLength + " characters long."); // Testing purposes only
+    alert("Your password will be " + passwordLength + " characters long."); 
   }
   
   // Gives the user the option to include lowercase letters in their password
@@ -56,7 +56,7 @@ function writePassword() {
     var randomPassword = randomPassword.concat(specialCharacters);
   }
   console.log(randomPassword, randomPassword.length); // Testing purposes only
-  
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -89,3 +89,9 @@ generateBtn.addEventListener("click", writePassword);
 // Fourth prompt: include numbers? (Y/N)
 // Fifth prompt: include special characters? (Y/N)
 // Prompts 2 through 5: at least one of these must be YES to generate password
+
+// function generatePassword() {
+// 	ALL THE THINGS YOU ALREADY WROTE
+// 	Use arrays instead of strings
+// 	Turn array into string at the end
+// }
