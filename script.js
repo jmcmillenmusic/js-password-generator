@@ -3,15 +3,27 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+function generatePassword() {
   
   // Declaring variables for all types of characters needed for passwords
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numbers = "0123456789";
-  var specialCharacters = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var specialCharacters = [" ", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
   
   // Sets the initial random password as an empty string to be filled later
-  var randomPassword = "";
+  var randomPassword = [];
   console.log(randomPassword);
 
   // Shows the first prompt requesting the user to choose a password length between 8 and 128 characters
@@ -30,42 +42,33 @@ function writePassword() {
   } else if (Number.isInteger(passwordLength) == false) {
     alert("Please enter a whole number.");
   } else {
-    alert("Your password will be " + passwordLength + " characters long."); // Testing purposes only
+    alert("Your password will be " + passwordLength + " characters long."); 
   }
   
   // Gives the user the option to include lowercase letters in their password
   if (confirm("Press OK to include lowercase letters in your password.")) {
     var randomPassword = randomPassword.concat(lowercase);
   }
-  console.log(randomPassword, randomPassword.length); // Testing purposes only
+  console.log(randomPassword); // Testing purposes only
 
   // Gives the user the option to include uppercase letters in their password
   if (confirm("Press OK to include uppercase letters in your password.")) {
     var randomPassword = randomPassword.concat(uppercase);
   }
-  console.log(randomPassword, randomPassword.length); // Testing purposes only
+  console.log(randomPassword); // Testing purposes only
   
   // Gives the user the option to include numbers in their password
   if (confirm("Press OK to include numbers in your password.")) {
     var randomPassword = randomPassword.concat(numbers);
   }
-  console.log(randomPassword, randomPassword.length); // Testing purposes only
+  console.log(randomPassword); // Testing purposes only
 
   // Gives the user the option to include special characters in their password
   if (confirm("Press OK to include special characters in your password.")) {
     var randomPassword = randomPassword.concat(specialCharacters);
   }
-  console.log(randomPassword, randomPassword.length); // Testing purposes only
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  console.log(randomPassword); // Testing purposes only
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
@@ -89,3 +92,7 @@ generateBtn.addEventListener("click", writePassword);
 // Fourth prompt: include numbers? (Y/N)
 // Fifth prompt: include special characters? (Y/N)
 // Prompts 2 through 5: at least one of these must be YES to generate password
+
+// function generatePassword() {
+// 	Turn array into string at the end
+// }
