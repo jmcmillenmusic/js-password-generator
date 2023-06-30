@@ -68,11 +68,14 @@ function generatePassword() {
     var randomPassword = randomPassword.concat(specialCharacters);
   }
   console.log(randomPassword); // Testing purposes only
-  console.log(passwordLength); // Testing purposes only
+
+  // If the user excludes all possible characters, they get an error message.
+  if (randomPassword.length < 10) {
+    alert("Your password must include at least one of the following: uppercase characters, lowercase characters, numbers, and special characters.");
+  }
 
   // Initializes finalPassword array and fills it with random characters from user's included characters
   var finalPassword = [];
-  console.log(finalPassword); // Testing purposes only
   for (i = 0; i < passwordLength; i++) {
     finalPassword.push(randomPassword[Math.floor(Math.random() * randomPassword.length)]);
   }
@@ -83,25 +86,3 @@ function generatePassword() {
   return finalPassword;
 }
 
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
-// First prompt: choose password length (range: 8 to 128)
-// Second prompt: include lowercase? (Y/N)
-// Third prompt: include uppercase? (Y/N)
-// Fourth prompt: include numbers? (Y/N)
-// Fifth prompt: include special characters? (Y/N)
-// Prompts 2 through 5: at least one of these must be YES to generate password
