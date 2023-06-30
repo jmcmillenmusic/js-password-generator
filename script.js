@@ -14,6 +14,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// Creates the password through a series of user prompts
 function generatePassword() {
   
   // Declaring variables for all types of characters needed for passwords
@@ -24,14 +25,12 @@ function generatePassword() {
   
   // Sets the initial random password as an empty string to be filled later
   var randomPassword = [];
-  console.log(randomPassword); // Testing purposes only
 
   // Shows the first prompt requesting the user to choose a password length between 8 and 128 characters
   var passwordLength = prompt("Choose a password length (must be between 8 and 128 characters).");
   
   // Converts what the user enters in the input field into a number (will return NaN if it's not a number)
   var passwordLength = Number(passwordLength);
-  console.log(passwordLength, typeof passwordLength); // Testing purposes only
   
   // If the password length is not a number, outside the range, or not an integer, it displays an error message.
   // Otherwise, this function stores the password's length.
@@ -49,25 +48,21 @@ function generatePassword() {
   if (confirm("Press OK to include lowercase letters in your password.")) {
     var randomPassword = randomPassword.concat(lowercase);
   }
-  console.log(randomPassword); // Testing purposes only
 
   // Gives the user the option to include uppercase letters in their password
   if (confirm("Press OK to include uppercase letters in your password.")) {
     var randomPassword = randomPassword.concat(uppercase);
   }
-  console.log(randomPassword); // Testing purposes only
   
   // Gives the user the option to include numbers in their password
   if (confirm("Press OK to include numbers in your password.")) {
     var randomPassword = randomPassword.concat(numbers);
   }
-  console.log(randomPassword); // Testing purposes only
 
   // Gives the user the option to include special characters in their password
   if (confirm("Press OK to include special characters in your password.")) {
     var randomPassword = randomPassword.concat(specialCharacters);
   }
-  console.log(randomPassword); // Testing purposes only
 
   // If the user excludes all possible characters, they get an error message.
   if (randomPassword.length < 10) {
@@ -82,7 +77,5 @@ function generatePassword() {
 
   // Converts array to string and returns the generated password
   var finalPassword = finalPassword.join("");
-  console.log(finalPassword); // Testing purposes only
   return finalPassword;
 }
-

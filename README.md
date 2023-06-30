@@ -7,13 +7,14 @@ Since I started working with Javascript, I've learned that understanding data ty
 ## Installation
 
 You can access this page with the following URL:
-https://jmcmillenmusic.github.io/jeff-mcmillen-portfolio/
+https://jmcmillenmusic.github.io/js-password-generator/
+
 
 ## Usage
 
-Click on any of the links at the top (bright green) to access each of the sections. In the Works section, click on any of the pictures to see that project in a new tab.
+Click on the Generate Password button and answer a series of prompt to set your password length (between 8 and 128 characters) and to include one or more of the following types of characters: lowercase letters, uppercase letters, numbers, and special characters. Once completed, the generated password will be displayed on screen.
 
-![screenshot](/images/screenshot.png)
+![screenshot](/assets/images/screenshot.png)
 
 ## Credits
 
