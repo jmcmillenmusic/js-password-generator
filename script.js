@@ -20,11 +20,11 @@ function generatePassword() {
   var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var specialCharacters = [" ", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+  var specialCharacters = [" ", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
   
   // Sets the initial random password as an empty string to be filled later
   var randomPassword = [];
-  console.log(randomPassword);
+  console.log(randomPassword); // Testing purposes only
 
   // Shows the first prompt requesting the user to choose a password length between 8 and 128 characters
   var passwordLength = prompt("Choose a password length (must be between 8 and 128 characters).");
@@ -68,6 +68,19 @@ function generatePassword() {
     var randomPassword = randomPassword.concat(specialCharacters);
   }
   console.log(randomPassword); // Testing purposes only
+  console.log(passwordLength); // Testing purposes only
+
+  // Initializes finalPassword array and fills it with random characters from user's included characters
+  var finalPassword = [];
+  console.log(finalPassword); // Testing purposes only
+  for (i = 0; i < passwordLength; i++) {
+    finalPassword.push(randomPassword[Math.floor(Math.random() * randomPassword.length)]);
+  }
+
+  // Converts array to string and returns the generated password
+  var finalPassword = finalPassword.join("");
+  console.log(finalPassword); // Testing purposes only
+  return finalPassword;
 }
 
 // GIVEN I need a new, secure password
@@ -92,7 +105,3 @@ function generatePassword() {
 // Fourth prompt: include numbers? (Y/N)
 // Fifth prompt: include special characters? (Y/N)
 // Prompts 2 through 5: at least one of these must be YES to generate password
-
-// function generatePassword() {
-// 	Turn array into string at the end
-// }
