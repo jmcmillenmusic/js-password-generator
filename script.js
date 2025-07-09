@@ -36,10 +36,13 @@ function generatePassword() {
   // Otherwise, this function stores the password's length.
   if (isNaN(passwordLength) == true) {
     alert("Please enter a number.");
+    return('Password length must be a number!');
   } else if (passwordLength < 8 || passwordLength > 128) {
     alert("Please choose a password length between 8 and 128 characters.");
+    return('Password length must be between 8 and 128 characters!');
   } else if (Number.isInteger(passwordLength) == false) {
     alert("Please enter a whole number.");
+    return('Password length must be a whole number!');
   } else {
     alert("Your password will be " + passwordLength + " characters long."); 
   }
@@ -67,6 +70,7 @@ function generatePassword() {
   // If the user excludes all possible characters, they get an error message.
   if (randomPassword.length < 10) {
     alert("Your password must include at least one of the following: uppercase characters, lowercase characters, numbers, and special characters.");
+    return('Your password must include at least one of the following: uppercase characters, lowercase characters, numbers, and special characters.');
   }
 
   // Initializes finalPassword array and fills it with random characters from user's included characters
