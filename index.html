@@ -18,9 +18,32 @@
           <div class="slide-container">
             <p>
               Password Length: 
-              <span id="passwordLength"></span>
+              <span 
+                id="passwordLength">
+              </span>
             </p>
             <input type="range" min="8" max="128" value="8" class="slider" id="characterRange">
+            <ul>
+              <input type="checkbox" id="lowercase" name="lowercase" value="Lowercase">
+              <label for="lowercase"> 
+                Include lowercase letters
+              </label>
+              <br/><br/>
+              <input type="checkbox" id="uppercase" name="uppercase" value="Uppercase">
+              <label for="uppercase"> 
+                Include uppercase letters
+              </label>
+              <br/><br/>
+              <input type="checkbox" id="numbers" name="numbers" value="Numbers">
+              <label for="numbers"> 
+                Include numbers
+              </label>
+              <br/><br/>
+              <input type="checkbox" id="specialCharacters" name="specialCharacters" value="SpecialCharacters">
+              <label for="specialCharacters"> 
+                Include special characters
+              </label>
+            </ul>
           </div>
         </div>
         <div class="card-body">
