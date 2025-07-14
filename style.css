@@ -50,6 +50,43 @@ header {
   height: 2px;
 }
 
+/* Slider stylings */
+.slide-container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 25px;
+  background: silver;
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+/* Hover effects on slider */
+.slider:hover {
+  opacity: 1;
+}
+
+/* Slider handle stylings for non-Firefox browsers*/
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: blue;
+}
+
+/* Slider handle stylings for Firefox only */
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: blue;
+}
+
 .card-body {
   min-height: 100px;
 }
@@ -85,7 +122,6 @@ header {
   margin: 16px 16px 16px 20px;
   padding: 14px 34px;
   text-align: center;
-  cursor: pointer;
 }
 
 button[disabled] {
