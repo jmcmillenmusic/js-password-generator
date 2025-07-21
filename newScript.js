@@ -1,45 +1,49 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector('#generate');
+const copyBtn = document.querySelector('#copy');
+const passwordText = document.querySelector('#password');
+const notifyText = document.querySelector('#copyNotify');
 
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
+    const password = generatePassword();
     passwordText.value = password;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Add event listeners to buttons
+generateBtn.addEventListener('click', writePassword);
+copyBtn.addEventListener('click', copyPassword);
 
 // Set password's length with the slider
-var slider = document.getElementById('characterRange');
-var passwordLength = document.getElementById('passwordLength');
+const slider = document.getElementById('characterRange');
+const passwordLength = document.getElementById('passwordLength');
 passwordLength.innerHTML = slider.value;
 slider.oninput = () => {
     passwordLength.innerHTML = slider.value;
 }
 
-// Regular expressions for each character set to be included or excluded from the generated password
-// Currently not being used
-const lowerRegex = '[a-z]';
-const upperRegex = '[A-Z]';
-const numberRegex = '[0-9]';
-const specialRegex = '[\!\@\#\$\%\^\&\*\(\)\~\+\=\|\{\}\[\]\_\\\<\>\,\.\?\/]';
+// Allows first checkbox to toggle all other checkboxes
+function toggleCheckboxes(all) {
+    const otherCheckboxes = document.getElementsByClassName('characters');
+    for (let i = 0; i < otherCheckboxes.length; i++) {
+        otherCheckboxes[i].checked = all.checked;
+    }
+}
 
 function generatePassword() {
     // Establishing data set for all types of characters needed for passwords
-    var lowercase = 'abcdefghijklmnopqrstuvwxyz';
-    var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var numbers = '0123456789';
-    var specialCharacters = '!@#$%^&*()_`~=+[]{}|,.<>?/';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789';
+    const specialCharacters = '!@#$%^&*()_~=+[]{}<>?/';
     
     // Initializes the base password as an empty string
     var basePassword = '';
 
     // Sets the password's length
-    var passwordLength = slider.value;
+    const passwordLength = slider.value;
 
-    // Identify all checkboxes
+    // Identify all other checkboxes
     const lowerCheckbox = document.getElementById('lowercase');
     const upperCheckbox = document.getElementById('uppercase');
     const numberCheckbox = document.getElementById('numbers');
@@ -65,5 +69,13 @@ function generatePassword() {
         finalPassword += basePassword[Math.floor(Math.random() * basePassword.length)];
     }
 
+    // Hide "Password Copied!" if user generates another password
+    notifyText.hidden = true;
+
     return finalPassword;
+}
+
+function copyPassword() {
+    navigator.clipboard.writeText(passwordText.value);
+    notifyText.hidden = false;
 }
