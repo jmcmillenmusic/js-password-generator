@@ -69,6 +69,18 @@ function generatePassword() {
         finalPassword += basePassword[Math.floor(Math.random() * basePassword.length)];
     }
 
+    // Returns an error if no checkboxes are checked
+    if (!lowerCheckbox.checked) {
+        if (!upperCheckbox.checked) {
+            if (!numberCheckbox.checked) {
+                if (!specialCheckbox.checked) {
+                    finalPassword = 'Choose at least 1 type of character for your password!';
+                    return finalPassword;
+                }
+            }
+        }
+    }
+
     // Hide "Password Copied!" if user generates another password
     notifyText.hidden = true;
 
