@@ -12,7 +12,7 @@ https://jmcmillenmusic.github.io/js-password-generator/
 
 ## Usage
 
-Click on the Generate Password button and answer a series of prompt to set your password length (between 8 and 128 characters) and to include one or more of the following types of characters: lowercase letters, uppercase letters, numbers, and special characters. Once completed, the generated password will be displayed on screen.
+Move the slider to set your password length (between 8 and 128 characters). Then, check one or more checkboxes to include one or more of the following types of characters: lowercase letters, uppercase letters, numbers, and special characters. Once completed, click on the Generate Password button to generate a password with the given parameters. Click on the Copy Password button to copy the text of the password in order to paste it in other applications.
 
 ![screenshot](/assets/images/screenshot.png)
 
